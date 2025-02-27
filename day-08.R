@@ -47,12 +47,16 @@ long_final_data <- final_data %>%
 
 ggplot(long_final_data, aes(x = date, y = value, color = metric)) +
   geom_line(linewidth = 1) +  # Line plot for trends
-  facet_wrap(~ region + metric, scales = "free_y", ncol = 2) +
+  facet_wrap(~ region + metric, scales = "free_y", ncol = 2,
+             labeller = labeller(metric = function(x) "")) +
   theme_minimal() +
   labs(title = "Daily Cases and Deaths by Region for the COVID-19 Pandemic",
        x = "Date",
        y = "Count",
        color = "Metric Type") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+  scale_color_manual(values = c("daily_cases" = "blue", "daily_deaths" = "red"),
+                     labels = c("Daily Cases", "Daily Deaths")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
+ggsave("img/covid_plot_daily_8.pdf", width = 10, height = 6, dpi = 300)
 

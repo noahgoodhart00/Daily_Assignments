@@ -58,5 +58,5 @@ ggplot(long_final_data, aes(x = date, y = value, color = metric)) +
                      labels = c("Daily Cases", "Daily Deaths")) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave("img/covid_plot_daily_8.png", width = 10, height = 6, dpi = 300)
+ggsave("img/covid_plot_daily_8.pdf", width = 10, height = 6, dpi = 300)
 
