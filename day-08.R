@@ -1,0 +1,58 @@
+#Noah Goodhart
+#ESS 330
+#Daily Assignment #8
+
+
+library(tidyverse)
+library(dplyr)
+url = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties-recent.csv'
+covid = read.csv(url)
+View(covid)
+
+state.df = data.frame(region = state.region,
+                      state = state.name,
+                      state_abbreviation = state.abb)
+View(state.df)
+
+joined_data <- full_join(state.df,covid, by = "state")
+joined_data <- joined_data %>% 
+  filter(!is.na(region))
+joined_data <- joined_data %>% 
+  mutate(date = as.Date(date))
+
+View(joined_data)
+
+daily_cummulative_cases <- joined_data %>% 
+  group_by(region, date) %>% 
+  summarise(daily_cases = sum(cases,na.rm = TRUE)) %>% 
+  arrange(region, date) 
+View(daily_cummulative_cases)
+
+daily_cummulative_deaths <- joined_data %>% 
+  group_by(region, date) %>% 
+  summarise(daily_deaths = sum(deaths, na.rm = TRUE)) %>% 
+  arrange(region, date)
+View(daily_cummulative_deaths)
+
+final_data <- daily_cummulative_cases %>%
+  left_join(daily_cummulative_deaths, by = c("region", "date"))
+view(final_data)
+final_data <- final_data %>% 
+  mutate(date = as.Date(date))
+
+long_final_data <- final_data %>%
+  pivot_longer(cols = c(daily_cases, daily_deaths), 
+               names_to = "metric", 
+               values_to = "value")
+
+ggplot(long_final_data, aes(x = date, y = value, color = metric)) +
+  geom_line(linewidth = 1) +  # Line plot for trends
+  facet_wrap(~ region + metric, scales = "free_y", ncol = 2) +
+  theme_minimal() +
+  labs(title = "Daily Cases and Deaths by Region for the COVID-19 Pandemic",
+       x = "Date",
+       y = "Count",
+       color = "Metric Type") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+
+
