@@ -3,7 +3,7 @@
     "path": "~/Desktop/ESS330 Spring25/ESS-330-Daily-Assignments-8+/day-08.R",
     "project_path": "day-08.R",
     "type": "r_source",
-    "hash": "2651694778",
+    "hash": "743626374",
     "contents": "",
     "dirty": false,
     "created": 1740507662676.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "61,0",
-        "scrollLine": "44"
+        "cursorPosition": "72,46",
+        "scrollLine": "49"
     },
     "folds": "",
-    "lastKnownWriteTime": 1740624649,
+    "lastKnownWriteTime": 1740625929,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1740624649211,
+    "last_content_update": 1740625929836,
     "read_only": false,
     "read_only_alternatives": []
 }
