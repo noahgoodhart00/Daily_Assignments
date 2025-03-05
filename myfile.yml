@@ -8,7 +8,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: Daily9&10qmd
+      - href: Daily9&10.qmd
         text: Daily Assignment 9 & 10
       
 
