@@ -1,0 +1,13 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Noah Goodhart Daily Assignments"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: Daily9&10qmd
+        text: Daily Assignment 9 & 10
+      

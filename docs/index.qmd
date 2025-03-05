@@ -1,0 +1,6 @@
+---
+title: "Collection of Daily Assignments"
+format: html
+editor: visual
+---
+This is where I keep all of my Daily Assignments! Please see the navigation bar to access the individual assignments.
