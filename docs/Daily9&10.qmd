@@ -1,0 +1,11 @@
+---
+project: 
+  title: "Daily 9 & 10"
+  output-dir: docs
+
+format: 
+  html:
+    self-contained: TRUE
+---
+
+Daily Assignment 9 & 10
