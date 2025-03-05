@@ -1,20 +1,3 @@
-project:
-  type: website
-  output-dir: docs
-
-website:
-  title: "Noah Goodhart Daily Assignments"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: Daily9&10.qmd
-        text: Daily Assignment 9 & 10
-      
-
 format:
   html:
-    theme: darkly
-    css: styles.css
-    toc: true
-    page-layout: full
+    self-contained: true
